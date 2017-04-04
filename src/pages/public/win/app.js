@@ -1,4 +1,4 @@
-import ('assets/css/sm.min.css');
+import 'assets/css/sm.min.css';
 
 import { fixStatusBar, getHeight } from 'public/public';
 window.apiready = function() {
@@ -8,8 +8,6 @@ window.apiready = function() {
     var data = api.pageParam;
     var url = data.url;
     var title = data.title;
-    var icon = data.icon;
-    var hideBackButton = data.hideBackButton || false;
     document.getElementById('title').innerHTML = title;
     var pageload = 0;
     if (api.systemType == "ios") {

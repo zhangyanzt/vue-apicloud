@@ -1,4 +1,3 @@
-
 ##使用方法
 ```bash
 #安装apicloud-cli
@@ -13,7 +12,7 @@ apicloud wifiSync --project ./ --updateAll true --port 23456
 apicloud wifiSync --project ./ --updateAll false --port 23456
 #开发模式 开启热更新
 npm run dev
-#访问 http://localhost:8081/index/index.html
+#PC端调试访问 http://localhost:8081/index/index.html
 #编译
 npm run build
 ```
@@ -40,7 +39,7 @@ npm run build
       |---.syncignore   apicloud同步忽略文件
       |---.babelrc  babel配置文件，重要，删除会无法运行项目
 ```
-#一些需要注意的问题或推荐写法
+##一些需要注意的问题或推荐写法
 ```
 apiready = function(){}
 ```
@@ -48,7 +47,7 @@ apiready = function(){}
 ```
 window.apiready = function(){}
 ```
-原因是，apicloud通过全局的方式调用apiready方法，而使用webpack模块化打包的方法，是不注册全局函数的，故需要手动将apiready生命在window对象下。
+原因是，apicloud通过全局的方式调用apiready方法，而使用webpack模块化打包的方法，是不注册全局函数的，故需要手动将apiready声明在window对象下。
 
 使用vue等项目的话，在app.js中apiready之后再实例化vue，这样确保在.vue单文件组件中直接使用api对象下的接口是正常的。
 ```
@@ -59,7 +58,7 @@ window.apiready = function(){
     })
 }
 ```
-#热更新调试时入口index页面的写法
+###热更新调试时入口index页面的写法
 一般情况下，apicloud有一个入口window页面，页面里通过相对路径打开对应frame,需要做热更新调试时，只需要简单的将frame的路径改成http://地址，
 例如你开发用的电脑IP为192.168.99.101，可以写成
 ```

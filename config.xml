@@ -1,14 +1,18 @@
- <widget id="A000000000000001"  version="0.0.1">
+ <widget id="A6946737892297"  version="0.0.1">
 
-    <name>vue-apicloud</name>
+    <name>vue示例</name>
 
     <description>
 
-        vue-apicloud
+        Example For APICloud.
 
     </description>
 
-	</feature>
+    <author email="developer@apicloud.com" href="http://www.apicloud.com">
+
+        Developer
+
+    </author>
 
     <content src="index.html" />
 
