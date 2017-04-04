@@ -1,0 +1,1 @@
+{**/*.js.map,**/node_modules/**,src/**,webpack.config.js,watch.js,package.json}
