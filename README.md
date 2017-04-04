@@ -1,10 +1,12 @@
 ##使用方法
 ```bash
-#安装apicloud-cli
-npm install apicloud -g
+#将apicloud生成项目的config.xml拷至本项目根路径，覆盖即可
 #安装依赖
 npm install
-#开启wifi同步  如使用IDE或者插件实现同步，可以忽略
+#如使用IDE或者插件实现同步，可以忽略以下几部，直接执行npm run dev
+#安装apicloud-cli  
+npm install apicloud -g
+#开启wifi同步 
 apicloud wifiStart --port 23456
 #全量更新
 apicloud wifiSync --project ./ --updateAll true --port 23456
@@ -15,11 +17,11 @@ npm run dev
 #PC端调试访问 http://localhost:8081/index/index.html
 #编译
 npm run build
+#编译后的dist文件夹可以使用svn上传至apicloud
 ```
 
 ##文件结构
 ```
-    webpack
       |---src
         |---assets 前端资源文件 需要编译
         |---componments 公共组件
@@ -40,17 +42,17 @@ npm run build
       |---.babelrc  babel配置文件，重要，删除会无法运行项目
 ```
 ##一些需要注意的问题或推荐写法
-```
+```javascript
 apiready = function(){}
 ```
 改为
-```
+```javascript
 window.apiready = function(){}
 ```
 原因是，apicloud通过全局的方式调用apiready方法，而使用webpack模块化打包的方法，是不注册全局函数的，故需要手动将apiready声明在window对象下。
 
 使用vue等项目的话，在app.js中apiready之后再实例化vue，这样确保在.vue单文件组件中直接使用api对象下的接口是正常的。
-```
+```javascript
 window.apiready = function(){
     new Vue({
         el: '#app',
@@ -61,7 +63,7 @@ window.apiready = function(){
 ###热更新调试时入口index页面的写法
 一般情况下，apicloud有一个入口window页面，页面里通过相对路径打开对应frame,需要做热更新调试时，只需要简单的将frame的路径改成http://地址，
 例如你开发用的电脑IP为192.168.99.101，可以写成
-```
+```javascript
 api.openFrame({
     name: 'frame',
      //url: 'dist/html/index.html', //上传打包时使用
