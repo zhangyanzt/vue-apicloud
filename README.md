@@ -14,7 +14,7 @@ apicloud wifiSync --project ./ --updateAll true --port 23456
 apicloud wifiSync --project ./ --updateAll false --port 23456
 #开发模式 开启热更新
 npm run dev
-#PC端调试访问 http://localhost:8081/index/index.html
+#PC端调试访问 http://localhost:8010/index/index.html
 #编译
 npm run build
 #编译后的dist文件夹可以使用svn上传至apicloud
