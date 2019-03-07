@@ -5,7 +5,7 @@
 npm install
 #如使用IDE或者插件实现同步，可以忽略以下几部，直接执行npm run dev
 #安装apicloud-cli  
-npm install apicloud -g
+npm install apicloud-cli -g
 #开启wifi同步 
 apicloud wifiStart --port 23456
 #全量更新
